@@ -1082,39 +1082,280 @@
 
     .cta-buttons { display: flex; gap: 16px; justify-content: center; }
 
-    footer {
-      background: #020810;
-      border-top: 1px solid var(--border2);
-      padding: 40px 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--text-dim);
-      letter-spacing: 0.08em;
-    }
+   /* ══════════════════════════════════════
+   FOOTER — iTest Inc.
+   Pega esto en tu styles.css
+══════════════════════════════════════ */
 
-    footer a { color: var(--text-dim); text-decoration: none; }
-    footer a:hover { color: var(--cyan); }
+/* ── TOP BAND ── */
+.footer {
+  background: #020810;
+  border-top: 1px solid var(--border);
+  font-family: var(--head);
+}
 
-    .footer-links { display: flex; gap: 28px; }
+.footer-band {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: linear-gradient(90deg, rgba(0,185,230,0.06), rgba(0,229,192,0.03));
+  border-bottom: 1px solid var(--border2);
+  padding: 18px 80px;
+}
 
-    /* ══ SCROLL ANIMATIONS ══ */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+.footer-band-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
 
-    /* delay helpers */
-    .d1 { transition-delay: 0.1s; }
-    .d2 { transition-delay: 0.2s; }
-    .d3 { transition-delay: 0.3s; }
-    .d4 { transition-delay: 0.4s; }
-    .d5 { transition-delay: 0.5s; }
-    .d6 { transition-delay: 0.6s; }
+.footer-band-text {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.footer-band-strong {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.footer-band-highlight {
+  color: var(--cyan2);
+  font-weight: 700;
+}
+
+/* ── MAIN GRID ── */
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+  gap: 60px;
+  padding: 64px 80px 48px;
+  border-bottom: 1px solid var(--border2);
+}
+
+/* ── BRAND COL ── */
+.footer-brand {}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.footer-logo-icon {
+  width: 36px;
+  height: 36px;
+  background: white;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #030b1a;
+  flex-shrink: 0;
+}
+
+.footer-logo-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.04em;
+}
+
+.footer-brand-desc {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  max-width: 280px;
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  transition: color 0.2s;
+}
+
+.footer-contact-item:hover {
+  color: white;
+}
+
+.footer-address {
+  cursor: default;
+}
+
+.footer-address:hover {
+  color: var(--text-dim);
+}
+
+/* ── NAV COLS ── */
+.footer-col {}
+
+.footer-col-title {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 20px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer-nav-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.footer-nav-link:hover {
+  color: white;
+}
+
+/* ── COMPLIANCE + CTA COL ── */
+.footer-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 28px;
+}
+
+.footer-cta-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.footer-cta-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.footer-cta-desc {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.footer-cta-btn {
+  display: block;
+  text-align: center;
+  background: white;
+  color: #030b1a;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.footer-cta-btn:hover {
+  opacity: 0.85;
+}
+
+/* ── BOTTOM BAR ── */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+.footer-equipment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-eq-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  letter-spacing: 0.12em;
+}
+
+.footer-eq-name {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+}
+
+.footer-eq-dot {
+  color: var(--border);
+  font-size: 0.6rem;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-legal-link {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+
+.footer-legal-link:hover {
+  color: white;
+}
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 1100px) {
+  .footer-band  { padding: 16px 24px; }
+  .footer-main  { grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px 24px; }
+  .footer-bottom { padding: 16px 24px; flex-direction: column; text-align: center; }
+  .footer-equipment { justify-content: center; }
+  .footer-legal { justify-content: center; }
+}
+
+@media (max-width: 640px) {
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-brand-desc { max-width: 100%; }
+}
 
     /* ══ RESPONSIVE ══ */
     @media (max-width: 1100px) {

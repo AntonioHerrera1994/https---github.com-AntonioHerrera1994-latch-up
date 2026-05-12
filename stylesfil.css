@@ -178,7 +178,7 @@ ul { list-style:none; }
 /* Botón ACTIVO — verde sólido */
 .lang-btn.active {
   background: var(--green-500, #2E8B57);
-  color: #fff;
+  color: #fff!important;
   border-color: var(--green-500, #2E8B57);
   box-shadow: 0 2px 8px rgba(46,139,87,.35);
 }

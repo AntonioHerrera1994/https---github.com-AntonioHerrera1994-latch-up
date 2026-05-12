@@ -142,6 +142,7 @@ ul { list-style:none; }
   padding:22px 64px;
   display:flex; align-items:center; justify-content:space-between;
   transition:all .4s var(--ease-out);
+  background:rgba(250,253,249,.96);
 }
 #nav.solid {
   background:rgba(250,253,249,.96);
@@ -158,6 +159,29 @@ ul { list-style:none; }
   color: var(--green-700);
 }
 
+/* Botón NO activo — verde con borde verde */
+.lang-btn {
+  padding: 5px 14px;
+  border-radius: 100px;
+  border: 1.5px solid var(--green-500, #2E8B57)!important;   /* ← borde verde */
+  font-family: inherit;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: transparent;
+  color: var(--green-500, #2E8B57);                /* ← texto verde */
+  transition: all .22s ease;
+}
+
+/* Botón ACTIVO — verde sólido */
+.lang-btn.active {
+  background: var(--green-500, #2E8B57);
+  color: #fff;
+  border-color: var(--green-500, #2E8B57);
+  box-shadow: 0 2px 8px rgba(46,139,87,.35);
+}
 /* Logo también blanco sobre el hero */
 .nav-brand-name {
   font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
@@ -190,6 +214,7 @@ ul { list-style:none; }
   text-transform:uppercase; color:white;
   position:relative; padding-bottom:4px;
   transition:color .3s;
+    color: var(--ink-60);
 }
 .nav-links a::after {
   content:''; position:absolute; bottom:0; left:0; right:0;
@@ -507,9 +532,9 @@ ul { list-style:none; }
   display:flex; align-items:center; justify-content:center;
   font-size:1.7rem; margin:0 auto 18px;
 }
-.icard-icon.g { background:var(--green-100); }
-.icard-icon.b { background:var(--blue-100); }
-.icard-icon.gd { background:var(--gold-light); }
+.icard-icon.g { background:var(--green-500); }
+.icard-icon.b { background:var(--green-500); }
+.icard-icon.gd { background:var(--green-500); }
 .icard-num {
   font-family:var(--font-display); font-size:3.2rem; font-weight:700;
   color:var(--green-700); line-height:1;

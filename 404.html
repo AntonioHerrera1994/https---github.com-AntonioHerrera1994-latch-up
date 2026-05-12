@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — ESurplus Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #FAFDF9;
+  color: #131A14;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── BACKGROUND ── */
+.bg-circles {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+}
+.bg-c {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle, rgba(46,139,87,.08) 0%, transparent 70%);
+}
+.bg-c1 { width:700px; height:700px; top:-200px; left:-200px; }
+.bg-c2 { width:500px; height:500px; bottom:-100px; right:-100px;
+  background: radial-gradient(circle, rgba(26,100,150,.07) 0%, transparent 70%); }
+.bg-dots {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  opacity: .045;
+  background-image: radial-gradient(circle, #1E5631 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+/* ── MAIN CARD ── */
+.card {
+  position: relative; z-index: 1;
+  text-align: center;
+  padding: 0 28px;
+  max-width: 640px;
+  width: 100%;
+  animation: rise .9s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* ── FLOATING BOX ── */
+.box-404 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.num-404 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(9rem, 22vw, 16rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.04em;
+  /* gradient text */
+  background: linear-gradient(145deg, #1E5631 0%, #1A6496 50%, #2E8B57 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+  animation: shimmer 4s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+@keyframes shimmer {
+  0%,100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* Floating emoji badge */
+.badge-float {
+  position: absolute;
+  background: #fff;
+  border-radius: 18px;
+  padding: 12px 18px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.13);
+  display: flex; align-items: center; gap: 10px;
+  white-space: nowrap;
+  font-size: .82rem; font-weight: 700;
+  color: #1E5631;
+  z-index: 2;
+}
+.bf-1 {
+  top: 10px; left: -60px;
+  animation: floatA 3.5s ease-in-out infinite;
+}
+.bf-2 {
+  bottom: 20px; right: -50px;
+  animation: floatB 4s ease-in-out infinite;
+  color: #143D5C;
+}
+@keyframes floatA {
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%    {transform:translateY(-10px) rotate(-3deg)}
+}
+@keyframes floatB {
+  0%,100%{transform:translateY(0) rotate(3deg)}
+  50%    {transform:translateY(-8px) rotate(3deg)}
+}
+
+/* ── LABEL PILL ── */
+.lost-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #D4EDD9; color: #1E5631;
+  padding: 7px 18px; border-radius: 100px;
+  font-size: .74rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.pill-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #2E8B57;
+  animation: blink 1.4s ease infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+/* ── HEADLINE ── */
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700; line-height: 1.15;
+  color: #14351F;
+  margin-bottom: 16px;
+}
+h1 em { font-style: italic; color: #1A6496; }
+
+p {
+  font-size: .98rem; line-height: 1.8;
+  color: rgba(19,26,20,.55);
+  max-width: 440px; margin: 0 auto 38px;
+}
+
+/* ── ACTIONS ── */
+.actions {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 14px 30px; border-radius: 100px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .88rem; font-weight: 700;
+  cursor: pointer; border: none;
+  transition: all .28s cubic-bezier(0.22,1,0.36,1);
+  text-decoration: none;
+}
+.btn-primary {
+  background: #2E8B57; color: #fff;
+  box-shadow: 0 6px 24px rgba(46,139,87,.32);
+}
+.btn-primary:hover {
+  background: #1E5631;
+  box-shadow: 0 10px 36px rgba(46,139,87,.42);
+  transform: translateY(-2px);
+}
+.btn-outline {
+  background: transparent; color: #1E5631;
+  border: 2px solid #A8D8B0;
+}
+.btn-outline:hover {
+  background: #D4EDD9; transform: translateY(-2px);
+}
+.btn svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2.2; }
+
+/* ── DIVIDER / FOOTER ── */
+.divider {
+  margin-top: 48px; padding-top: 28px;
+  border-top: 1px solid rgba(19,26,20,.09);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-size: .78rem; color: rgba(19,26,20,.35);
+  font-weight: 600; letter-spacing: .05em;
+}
+.divider-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .95rem; font-weight: 700;
+  color: #1E5631;
+}
+
+/* ── FALLING LEAVES ── */
+.leaf {
+  position: fixed; top: -60px;
+  font-size: 1.6rem;
+  animation: fall linear infinite;
+  opacity: 0;
+  pointer-events: none; z-index: 0;
+  user-select: none;
+}
+
+/* ── ENTER ANIMATION ── */
+@keyframes rise {
+  from { opacity:0; transform: translateY(50px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+@keyframes fall {
+  0%   { transform: translateX(0) rotate(0deg);   opacity: 0; top: -60px; }
+  10%  { opacity: .7; }
+  90%  { opacity: .4; }
+  100% { transform: translateX(60px) rotate(360deg); opacity: 0; top: 110vh; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 560px) {
+  .bf-1, .bf-2 { display: none; }
+  .card { padding: 0 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Background -->
+<div class="bg-circles">
+  <div class="bg-c bg-c1"></div>
+  <div class="bg-c bg-c2"></div>
+</div>
+<div class="bg-dots"></div>
+
+<!-- Falling leaves (injected by JS) -->
+
+<!-- Main content -->
+<div class="card">
+
+  <div class="box-404">
+    <!-- Floating badges -->
+    <div class="badge-float bf-1">♻️ Lost in the loop</div>
+    <div class="badge-float bf-2">📦 Wrong address</div>
+    <!-- Big number -->
+    <div class="num-404">404</div>
+  </div>
+
+  <div class="lost-pill">
+    <span class="pill-dot"></span>
+    Page Not Found
+  </div>
+
+  <h1>This page has been<br><em>repurposed elsewhere.</em></h1>
+
+  <p>
+    Like the surplus we redirect to students, this URL didn't end up where you expected.
+    But don't worry — nothing is wasted here. Let's get you back on track.
+  </p>
+
+  <div class="actions">
+    <a href="index.html" class="btn btn-primary">
+      <svg viewBox="0 0 24 24"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg>
+      Back to Home
+    </a>
+    <a href="mailto:patronage@esurplusinc.com" class="btn btn-outline">
+      Contact Us
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </a>
+  </div>
+
+  <div class="divider">
+    <span>©&nbsp;2025</span>
+    <span class="divider-brand">ESurplus Inc.</span>
+    <span>·</span>
+    <span>Zacatecas, México</span>
+  </div>
+
+</div>
+
+<script>
+// Falling leaves / emoji particles
+const symbols = ['🌱','♻️','📦','🔬','🎓','💡','🌿','🔧'];
+const count = 14;
+
+for (let i = 0; i < count; i++) {
+  const el = document.createElement('span');
+  el.className = 'leaf';
+  el.textContent = symbols[i % symbols.length];
+
+  const left  = Math.random() * 100;
+  const dur   = 7 + Math.random() * 10;
+  const delay = Math.random() * 12;
+  const size  = 1 + Math.random() * .8;
+
+  el.style.cssText = `
+    left: ${left}vw;
+    font-size: ${size}rem;
+    animation-duration: ${dur}s;
+    animation-delay: ${delay}s;
+  `;
+  document.body.appendChild(el);
+}
+</script>
+
+</body>
+</html>

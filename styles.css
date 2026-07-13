@@ -446,6 +446,20 @@
       letter-spacing: 0.08em;
     }
 
+    /* ══ LATCH-UP TYPES + RELIABILITY GRIDS (moved out of inline styles so media queries can control them) ══ */
+    .latchup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .reliability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
     /* ══ COMPLIANCE TAGS ══ */
     .compliance-row {
       display: flex; gap: 10px; flex-wrap: wrap;
@@ -1414,6 +1428,8 @@
   .hero-right { min-height: 300px; }
   .hanwa-layout, .rail-layout { grid-template-columns: 1fr; gap: 40px; }
   .equip-grid { grid-template-columns: 1fr; }
+  .latchup-grid { grid-template-columns: 1fr; }
+  .reliability-grid { grid-template-columns: 1fr 1fr; }
   .cap-grid { grid-template-columns: 1fr 1fr; }
   .why-grid, .int-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: repeat(3, 1fr); }
@@ -1445,6 +1461,7 @@
   .std-grid { grid-template-columns: 1fr; }
   .power-grid { grid-template-columns: 1fr; }
   .equip-specs { grid-template-columns: 1fr; }
+  .reliability-grid { grid-template-columns: 1fr; }
 
   .adv-hero-banner { padding: 36px 24px; }
   .adv-banner-stats { flex-direction: column; }

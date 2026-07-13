@@ -1,5 +1,4 @@
-
-    /* ══════════════════════════════════════════
+/* ══════════════════════════════════════════
        TOKENS
     ══════════════════════════════════════════ */
     :root {
@@ -100,6 +99,64 @@
       transition: opacity 0.2s !important;
     }
     .nav-cta:hover { opacity: 0.85; }
+
+    /* ══ HAMBURGER + MOBILE NAV ══ */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+      z-index: 110;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 105;
+      background: rgba(3,11,26,0.98);
+      backdrop-filter: blur(18px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      padding: 32px;
+      text-align: center;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--head);
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--cyan); }
+    .mobile-nav .nav-cta {
+      margin-top: 14px;
+      padding: 12px 30px;
+    }
+    body.nav-open { overflow: hidden; }
 
     /* ══ HERO ══ */
     .hero {
@@ -215,6 +272,7 @@
       margin-top: 56px;
       padding-top: 40px;
       border-top: 1px solid var(--border2);
+      flex-wrap: wrap;
     }
 
     .hero-stat-num {
@@ -418,10 +476,12 @@
 
     .comp-table-wrap {
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .comp-table {
       width: 100%;
+      min-width: 720px;
       border-collapse: separate;
       border-spacing: 0;
     }
@@ -1080,7 +1140,7 @@
     .cta-section h2 { margin: 0 auto 20px; max-width: 100%; }
     .cta-section p  { max-width: 520px; margin: 0 auto 44px; font-size: 1rem; line-height: 1.75; }
 
-    .cta-buttons { display: flex; gap: 16px; justify-content: center; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
    /* ══════════════════════════════════════
    FOOTER — iTest Inc.
@@ -1343,8 +1403,23 @@
   color: white;
 }
 
-/* ══ RESPONSIVE ══ */
+/* ══ RESPONSIVE — TABLET ══ */
 @media (max-width: 1100px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  section, .services-band, footer, .cta-section { padding-left: 24px; padding-right: 24px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 60px 24px; }
+  .hero-right { min-height: 300px; }
+  .hanwa-layout, .rail-layout { grid-template-columns: 1fr; gap: 40px; }
+  .equip-grid { grid-template-columns: 1fr; }
+  .cap-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid, .int-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .std-grid { grid-template-columns: repeat(3, 1fr); }
+  .adv-hero-banner { grid-template-columns: 1fr; }
+  .adv-banner-stats { flex-direction: row; }
   .footer-band  { padding: 16px 24px; }
   .footer-main  { grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px 24px; }
   .footer-bottom { padding: 16px 24px; flex-direction: column; text-align: center; }
@@ -1352,30 +1427,44 @@
   .footer-legal { justify-content: center; }
 }
 
+/* ══ RESPONSIVE — MOBILE (grids collapse to a single row/column) ══ */
 @media (max-width: 640px) {
-  .footer-main { grid-template-columns: 1fr; }
-  .footer-brand-desc { max-width: 100%; }
-}
+  nav { padding: 0 18px; height: 60px; }
+  .nav-logo { font-size: 1.2rem; }
+  section, .services-band, footer, .cta-section { padding-top: 56px; padding-bottom: 56px; }
+  .hero-left { padding: 48px 18px; }
+  .hero h1 { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+  .hero-buttons { flex-direction: column; align-items: stretch; }
+  .hero-buttons a { text-align: center; }
+  .hero-stats { gap: 24px; margin-top: 40px; padding-top: 28px; }
+  .hero-stat-num { font-size: 1.6rem; }
+  .hero-badge { left: 18px; right: 18px; bottom: 18px; padding: 16px 20px; }
 
-    /* ══ RESPONSIVE ══ */
-    @media (max-width: 1100px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      section, .services-band, footer, .cta-section { padding-left: 24px; padding-right: 24px; }
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 60px 24px; }
-      .hero-right { min-height: 300px; }
-      .hanwa-layout, .rail-layout { grid-template-columns: 1fr; gap: 40px; }
-      .equip-grid { grid-template-columns: 1fr; }
-      .cap-grid { grid-template-columns: 1fr 1fr; }
-      .why-grid, .int-grid { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: repeat(3, 1fr); }
-      .std-grid { grid-template-columns: repeat(3, 1fr); }
-      .adv-hero-banner { grid-template-columns: 1fr; }
-      .adv-banner-stats { flex-direction: row; }
-      footer { flex-direction: column; gap: 16px; text-align: center; }
-      .footer-links { flex-wrap: wrap; justify-content: center; }
-    }
+  .services-grid { grid-template-columns: 1fr; }
+  .cap-grid { grid-template-columns: 1fr; }
+  .std-grid { grid-template-columns: 1fr; }
+  .power-grid { grid-template-columns: 1fr; }
+  .equip-specs { grid-template-columns: 1fr; }
+
+  .adv-hero-banner { padding: 36px 24px; }
+  .adv-banner-stats { flex-direction: column; }
+  .adv-banner-title { font-size: 1.5rem; }
+
+  .cta-section { padding: 64px 18px; }
+  .cta-buttons { flex-direction: column; align-items: stretch; }
+  .cta-buttons a { text-align: center; }
+
+  .footer-main { grid-template-columns: 1fr; padding: 32px 18px; gap: 32px; }
+  .footer-band { flex-direction: column; padding: 16px 18px; }
+  .footer-bottom { padding: 16px 18px; }
+  .footer-legal { flex-wrap: wrap; }
+
+  .img3-grid { grid-template-columns: 1fr; padding: 32px 18px; }
+  .img3-grid img { height: 220px; }
+
+  .comp-table thead th,
+  .comp-table tbody td { padding: 14px 16px; }
+}
 
     .img3-grid {
     display: grid;

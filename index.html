@@ -62,7 +62,23 @@
       <li><a href="mailto:mariano.ortega@itestinc.com" class="nav-cta">Get Quote</a></li>
       
     </ul>
+
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- ══ MOBILE NAV OVERLAY ══ -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="tel:+526693336797">669-333-6797</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#latchup">Latch-Up</a>
+    <a href="#advantest">ASIC UHP Latch-UP</a>
+    <a href="#equipment">Equipment</a>
+    <a href="#hanwa">Hanwa G5000</a>
+    <a href="#standards">Standards</a>
+    <a href="mailto:mariano.ortega@itestinc.com" class="nav-cta">Get Quote</a>
+  </div>
 
   <!-- ══ HERO ══ -->
   <section class="hero" id="home" style="padding:0;">
@@ -1104,6 +1120,24 @@
       if (nums[2]) animateNum(nums[2], 1024, '+');
     }, 400);
   });
+
+  /* ── Mobile hamburger nav ── */
+  const hamburger = document.getElementById('navHamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
+    }));
+  }
 </script>
 
 </body>
